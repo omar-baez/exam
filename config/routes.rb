@@ -1,12 +1,11 @@
 Exam::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
-  resources :users
-
-  resources :boxes
-
-  resources :items
-
+  
+  root  'static_pages#home'
+  match '/users',    to: 'users#index',          via: 'get'
+  match '/boxes',    to: 'boxes#index',          via: 'get'
+  match '/items',    to: 'items#index',          via: 'get'
+  match '/help',     to: 'static_pages#help',    via: 'get'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
